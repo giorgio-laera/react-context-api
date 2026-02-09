@@ -6,7 +6,16 @@ function BudgetProvider({ children }) {
     
     const [budget, setBudget] = useState(false)
 
-    return < BudgetContext.Provider value = { [budget, setBudget]} >
+function toggleBudget (){
+
+const newDate = !budget;
+
+setBudget(newDate)
+
+}
+
+const exportValue={budget, toggleBudget}
+    return < BudgetContext.Provider value = {exportValue} >
    
              { children }
      </BudgetContext.Provider>
