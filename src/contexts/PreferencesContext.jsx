@@ -11,7 +11,7 @@ function toggleBudget (){
 const newDate = !budget;
 
 setBudget(newDate)
-console.log('toggle',toggle)
+console.log('toggle',toggleBudget)
 }
 
 const exportValue={budget, toggleBudget}

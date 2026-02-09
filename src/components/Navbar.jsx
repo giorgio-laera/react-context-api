@@ -2,9 +2,8 @@ import { NavLink, Link } from "react-router-dom"
 import style from '../Modules/Navbar.module.css'
 import { useBudget } from "../contexts/PreferencesContext"
 function NavBar() {
-const {budget, toggleBudget} = useBudget;
+const {budget, toggleBudget} = useBudget();
 
-console.log(budget)
     return (<div className={style.navbar}>
         <p>Mamma ho perso l’acquisto</p>
         <nav>
@@ -13,9 +12,7 @@ console.log(budget)
             <NavLink to="/about">Chi siamo</NavLink>
             <button onClick={toggleBudget}>{budget ? "Disattiva Modalita Budget": "Attiva Modalita Budget"}</button>
         </nav>
-
     </div>
-
     )
     
 }
