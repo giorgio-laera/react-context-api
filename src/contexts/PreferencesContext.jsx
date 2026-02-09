@@ -13,8 +13,11 @@ const newDate = !budget;
 setBudget(newDate)
 console.log('toggle',toggleBudget)
 }
-
-const exportValue={budget, toggleBudget}
+function switchText () {
+    console.log('switsh',switchText)
+    return budget ? "Disattiva Modalita Budget" : "Attiva Modalita Budget";
+}
+const exportValue={budget, toggleBudget, switchText}
     return < BudgetContext.Provider value = {exportValue} >
    
              { children }
