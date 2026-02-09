@@ -1,6 +1,7 @@
 //import axios from 'axios'
 //import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BudgetProvider } from "./contexts/PreferencesContext";
 import LayoutDefault from './layautsDefault/LayoutDefault'
 import HomePage from './pages/HomePage'
 import About from './pages/AboutPage'
@@ -8,8 +9,7 @@ import Products from './pages/ProductsPage'
 import SingleItem from './pages/SingleItemPage'
 import Error from './pages/ErrorPage'
 function App() {
-
-	return (
+	return (<BudgetProvider>
 		<BrowserRouter>
 			<Routes>
 				<Route Component={LayoutDefault}>
@@ -21,8 +21,9 @@ function App() {
 				</Route>
 			</Routes>
 
-		</BrowserRouter>)
-
+		</BrowserRouter>
+	</BudgetProvider>
+	)
 
 }
 

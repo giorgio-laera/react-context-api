@@ -29,3 +29,6 @@ gap: 1rem;
 .card img{
   width: 70%;
 }
+button{
+  background-color: #333;
+}
