@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { useBudget } from "../contexts/PreferencesContext"
 import axios from 'axios'
 function Products (){
-	const [items, setItems] = useState([])
-
-	
+	const [items, setItems] = useState([]);
+	const {budget}= useBudget();
+	let filteredOrNo =  budget ? items.filter(oggetto=>oggetto.price <=30) : items ;
 	function callApi() {
 
 		axios.get('https://fakestoreapi.com/products').then(respose =>
@@ -14,9 +15,10 @@ function Products (){
 	} console.log({ items })
 
 	useEffect(callApi, [])
-return <>
+	
+		return <>
 			<div className='flex-container flex-wrap'>
-				{items.map(item =>
+				{filteredOrNo.map(item =>
 					<div className='card' key={item.id}>
 						<h2>{item.title}</h2>
 						<img src={item.image} alt="" />
@@ -27,5 +29,7 @@ return <>
 				)}
 			</div>
 		</>
-}
+	}
+
+
 export default Products
